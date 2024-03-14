@@ -1,0 +1,38 @@
+{% extends 'display/base.html' %}
+
+{% block content %}
+
+    <h1> Sellers: </h1>
+    <br>
+    <br>
+    
+{% for displa in displa_list %}
+
+<div class="card">
+  <div class="card-header">
+    {{ displa }}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ displa.material }}</h5>
+    <p class="card-text">
+    	<ul>
+    <li> <b>Year:</b> {{ displa.year }}</li>
+    <li><b>Mobile No:</b> {{ displa.contact }}</li>
+    <li><b>Email Address:</b> {{ displa.email }}</li>
+    <li><b>Price:</b> {{ displa.price }}</li>
+
+
+    </ul>
+    </p>
+  </div>
+  <div class="card-footer text-muted">
+    <a href="{% url 'update-displa' displa.id %}" class="btn btn-outline-secondary btn-sm">Update</a>
+
+    <a href="{% url 'delete-displa' displa.id %}" class="btn btn-outline-danger btn-sm">Delete</a>
+  </div>
+</div>
+
+    
+    <br/>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'display/base.html' %}
+
+{% block content %}
+    {% if results %}
+        <h4><p>Showing results for '{{ query }}':</p></h4>
+        <br>
+        {% for displa in results %}
+            <!-- Display your search results here -->
+            <div class="card">
+                <div class="card-header">
+                    {{ displa.name }}
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title" style="margin-bottom: 5px;">{{ displa.material }}</h5>
+                    <p class="card-text">
+                        <ul>
+                            <li><b>Year:</b> {{ displa.year }}</li>
+                            <li><b>Mobile No:</b> {{ displa.contact }}</li>
+                            <li><b>Email Address:</b> {{ displa.email }}</li>
+                            <li><b>Price:</b> {{ displa.price }}</li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+            <br/>
+        {% endfor %}
+    {% else %}
+        <p>No results found for '{{ query }}'</p>
+    {% endif %}
+{% endblock %}
